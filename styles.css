@@ -1,0 +1,180 @@
+:root {
+  --bg: #0d0d12;
+  --panel: #1a1a24;
+  --text: #f4f4f6;
+  --muted: #a3a3b3;
+  --gold: #f5c542;
+  --green: #22c55e;
+  --green-dark: #16a34a;
+  --red: #f87171;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+/* Only the current "page" is shown (see app.js) */
+.page {
+  display: none;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+.page.active { display: flex; }
+
+/* Title + tagline: the thing eyes go to first */
+.hero { margin-top: 16px; }
+.title {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(4rem, 16vw, 9rem);
+  letter-spacing: 0.06em;
+  line-height: 0.9;
+  margin: 0;
+  background: linear-gradient(90deg, #ef4444, #f5c542, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero.small .title { font-size: clamp(3rem, 12vw, 6rem); }
+.tagline {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  letter-spacing: 0.08em;
+  margin: 8px 0 0;
+  line-height: 1.05;
+}
+.gold { color: var(--gold); }
+
+/* Banner of three scenes */
+.banner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+.scene {
+  margin: 0;
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 24px 8px 16px;
+  border: 1px solid #2a2a38;
+}
+.pair { font-size: clamp(2rem, 7vw, 3.5rem); display: flex; justify-content: center; align-items: center; gap: 4px; }
+.phone { font-size: 0.6em; }
+.scene figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
+
+/* $100K prize */
+.prize {
+  border: 3px solid var(--gold);
+  border-radius: 18px;
+  padding: 24px 20px;
+  width: 100%;
+  max-width: 640px;
+  box-shadow: 0 0 40px rgba(245, 197, 66, 0.25);
+}
+.prize-amount {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(3.5rem, 14vw, 6rem);
+  color: var(--gold);
+  line-height: 1;
+}
+.prize-label { font-weight: 800; letter-spacing: 0.4em; color: var(--gold); }
+.prize-text { font-weight: 800; text-transform: uppercase; margin: 16px 0 0; }
+
+/* Countdown */
+.release { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.release-text { margin: 0; color: var(--muted); }
+.release-text strong { color: var(--text); font-size: 1.15rem; }
+.countdown { display: flex; gap: 10px; }
+.countdown div {
+  background: var(--panel);
+  border-radius: 10px;
+  min-width: 72px;
+  padding: 10px 6px;
+}
+.countdown span { display: block; font-family: "Bebas Neue", Impact, sans-serif; font-size: 2.4rem; line-height: 1; }
+.countdown small { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* Green buttons */
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 40px;
+  font: 800 1.1rem Inter, sans-serif;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn.green { background: var(--green); color: #04140a; box-shadow: 0 6px 0 var(--green-dark); }
+.btn.green:hover { filter: brightness(1.08); }
+.btn.green:active { transform: translateY(3px); box-shadow: 0 3px 0 var(--green-dark); }
+
+/* Registration form */
+.page-title { font-family: "Bebas Neue", Impact, sans-serif; font-size: 3rem; letter-spacing: 0.06em; margin: 0; }
+.form { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 16px; text-align: left; }
+.form .row { display: flex; gap: 12px; }
+.form .row label { flex: 1; }
+.form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 0.9rem; }
+.form input {
+  background: var(--panel);
+  border: 1px solid #333345;
+  border-radius: 10px;
+  color: var(--text);
+  padding: 12px;
+  font-size: 1rem;
+}
+.form input:focus { outline: 2px solid var(--green); border-color: transparent; }
+.form .btn { align-self: center; margin-top: 8px; }
+.error { color: var(--red); margin: 0; min-height: 1.5em; }
+.note { color: var(--muted); font-size: 0.8rem; text-align: center; margin: 0; }
+
+/* Characteristics list */
+.traits { list-style: none; padding: 0; margin: 0; width: 100%; max-width: 640px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.traits li {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--panel); border-radius: 10px; padding: 14px 16px;
+}
+.traits .num { color: var(--gold); font-weight: 800; margin-right: 10px; }
+.help {
+  flex: none;
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid var(--gold); background: transparent; color: var(--gold);
+  font-weight: 800; font-size: 1rem; cursor: pointer;
+}
+.help:hover { background: var(--gold); color: var(--bg); }
+
+.wildcard { max-width: 640px; }
+.wildcard-result {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+/* Popup */
+dialog {
+  background: var(--panel); color: var(--text);
+  border: 2px solid var(--gold); border-radius: 16px;
+  max-width: min(440px, calc(100vw - 32px)); padding: 24px; text-align: center;
+}
+dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
+dialog h3 { margin-top: 0; color: var(--gold); }
+
+@media (max-width: 560px) {
+  .banner { grid-template-columns: 1fr; }
+  .form .row { flex-direction: column; }
+  .countdown div { min-width: 60px; }
+}

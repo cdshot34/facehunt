@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FaceHunt — A Bridge to Social Divide</title>
+  <meta name="description" content="FaceHunt: find a person to match each characteristic on the list and win $100,000." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- PAGE 1: OPENING PAGE -->
+  <section class="page" id="home">
+    <header class="hero">
+      <h1 class="title">FACEHUNT</h1>
+      <p class="tagline">A Bridge to<br />Social Divide</p>
+    </header>
+
+    <!-- Banner: three scenes of unlikely people talking, phones out.
+         Placeholder art for now — swap in real photos in /images later. -->
+    <div class="banner">
+      <figure class="scene">
+        <div class="pair"><span class="person">🌈</span><span class="phone">📱</span><span class="person">🧑‍🌾</span></div>
+        <figcaption>The flamboyant city guy &amp; the farmer</figcaption>
+      </figure>
+      <figure class="scene">
+        <div class="pair"><span class="person">✊🏿</span><span class="phone">📱</span><span class="person">🧢</span></div>
+        <figcaption>BLM shirt &amp; MAGA hat</figcaption>
+      </figure>
+      <figure class="scene">
+        <div class="pair"><span class="person">👵</span><span class="phone">📱</span><span class="person">🤘</span></div>
+        <figcaption>Grandma &amp; the punk rocker</figcaption>
+      </figure>
+    </div>
+
+    <div class="prize">
+      <div class="prize-amount">$100,000</div>
+      <div class="prize-label">PRIZE</div>
+      <p class="prize-text">Find a person to match each characteristic on the list.<br />Be the first to enter a submission and win!</p>
+    </div>
+
+    <div class="release">
+      <p class="release-text">List of characteristics released<br /><strong>November 1st, 2027 at 7pm EST</strong></p>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div><span id="cd-days">--</span><small>Days</small></div>
+        <div><span id="cd-hours">--</span><small>Hours</small></div>
+        <div><span id="cd-mins">--</span><small>Minutes</small></div>
+        <div><span id="cd-secs">--</span><small>Seconds</small></div>
+      </div>
+      <a class="btn green" href="#register-intro">⬇ DOWNLOAD</a>
+    </div>
+  </section>
+
+  <!-- PAGE 2: AFTER DOWNLOAD -->
+  <section class="page" id="register-intro">
+    <header class="hero small">
+      <h1 class="title">FACEHUNT</h1>
+      <p class="tagline">Bridge to Social Divide<br /><span class="gold">$100K Challenge</span></p>
+    </header>
+    <a class="btn green" href="#register">REGISTER NOW</a>
+  </section>
+
+  <!-- PAGE 3: REGISTRATION FORM -->
+  <section class="page" id="register">
+    <h2 class="page-title">Register</h2>
+    <form id="register-form" class="form" novalidate>
+      <div class="row">
+        <label>First name<input name="first" required autocomplete="given-name" /></label>
+        <label>Last name<input name="last" required autocomplete="family-name" /></label>
+      </div>
+      <label>Email address<input name="email" type="email" required autocomplete="email" /></label>
+      <label>Phone number<input name="phone" type="tel" required autocomplete="tel" /></label>
+      <label>Choose a personal 4-digit PIN
+        <input name="pin" type="password" inputmode="numeric" pattern="\d{4}" maxlength="4" required autocomplete="new-password" />
+      </label>
+      <p class="error" id="form-error" role="alert"></p>
+      <button class="btn green" type="submit">CONTINUE</button>
+      <p class="note">Demo only — nothing is saved or sent anywhere yet.</p>
+    </form>
+  </section>
+
+  <!-- PAGE 4: THE LIST -->
+  <section class="page" id="list">
+    <h2 class="page-title">The List</h2>
+    <ol class="traits" id="traits"></ol>
+
+    <div class="wildcard">
+      <p>Don't match any of the characteristics? Participate by using the wildcard to be assigned one of the 10 characteristics.</p>
+      <button class="btn green" id="wildcard-btn" type="button">🃏 WILDCARD</button>
+      <p class="wildcard-result" id="wildcard-result" hidden></p>
+    </div>
+  </section>
+
+  <!-- Definition popup -->
+  <dialog id="definition">
+    <h3 id="definition-title"></h3>
+    <p id="definition-text"></p>
+    <button class="btn green" type="button" id="definition-close">GOT IT</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
